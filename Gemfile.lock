@@ -167,6 +167,7 @@ DEPENDENCIES
   hub
   jbuilder (~> 1.2)
   jquery-rails
+  nokogiri
   quiet_assets
   rails (= 4.0.1)
   rails_layout
