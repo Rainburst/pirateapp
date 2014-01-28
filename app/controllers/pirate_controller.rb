@@ -18,7 +18,7 @@ class PirateController < ApplicationController
       logger.error { e }
       @is_argument_error = true
     rescue Exception => e
-      logger.error { e.type }
+      logger.error { e }
 
   end
 
