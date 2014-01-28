@@ -6,7 +6,7 @@
    <array>
      <dict>
        <key>CFBundleIdentifier</key>
-       <string>com.herokuapp.pirateapp</string>
+       <string>com.herokuapp.mypirate</string>
        <key>Developer Identifier</key>
        <string>3535Z2937Z</string>
        <key>CFBundleVersion</key>
@@ -14,7 +14,7 @@
        <key>CFBundleShortVersionString</key>
        <string>Your current display version</string>
        <key>URL</key>
-       <string>http://pirateapp.herokuapp.com/safari/pirate.safariextz</string>
+       <string>http://mypirate.herokuapp.com/safari/pirate.safariextz</string>
      </dict>
    </array>
 </dict>
