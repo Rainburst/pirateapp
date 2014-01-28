@@ -1,8 +1,21 @@
-<h1>Pirate#download</h1>
-<p>Find me in app/views/pirate/download.html.erb</p>
+<div class="container">
+  <div class="page-header">
+    <h1 class="text-danger">Something went wrong :(</h1>
+  </div>
+  <% if @is_argument_error == true %>
+    <p class="lead text-danger">Episode and season must be numbers</p>
+    <h2>What to do?</h3>
+    <h3>Try yourself</h2>
+    <p>Make sure you passed correct arguments :)</p>
+    <h3>Suggest a feature</h2>
+    <p>Feel free to contact me <a href="https://twitter.com/hexrain">@hexrain</a> </p>
+  <% else %>
+    <p class="lead text-danger">Either this episode is not yet available or there's a bug somewhere</p>
+    <h2>What to do?</h3>
+    <h3>Try yourself</h2>
+    <p>You can try to find your episode yourself here: <a href="<%= @path %>"><%= @path %></a></p>
+    <h3>Report a bug</h2>
+    <p>Feel free to contact me <a href="https://twitter.com/hexrain">@hexrain</a> </p>
+  <% end %>
 
-<p>Url: </p> <a href="<%= @url %>"><%= @url %></a>  
-
-<div>
-  <%= @contents %>
 </div>

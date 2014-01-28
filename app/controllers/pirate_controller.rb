@@ -3,21 +3,39 @@ require 'net/http'
 class PirateController < ApplicationController
 
   def download
+    @is_argument_error = false
+    validate_params
     hosts = ["http://quluxingba.info", "http://thepiratebay.se"]
-    magnet = magnet(hosts[1],params[:series],params[:season],params[:episode])
+    magnet = magnet(hosts[1],@series,@season,@episode)
     @url = magnet
     redirect_to magnet
 
     rescue Timeout::Error => e
-      magnet = magnet(hosts[0],params[:series],params[:season],params[:episode])
+      logger.error { e }
+      magnet = magnet(hosts[0],@series,@season,@episode)
       redirect_to magnet
+    rescue ArgumentError => e
+      logger.error { e }
+      @is_argument_error = true
+    rescue Exception => e
+      logger.error { e.type }
+
   end
 
   private
 
+  def validate_params 
+    @series = params[:series]
+    @season = params[:season]
+    @episode = params[:episode]
+    Integer(@season)
+    Integer(@episode)
+  end
+
   def magnet host, series, season, episode
     path = "#{host}/search/#{series} s#{season.rjust(2,'0')}e#{episode.rjust(2,'0')}/0/7/208"
     uri = URI.parse URI.escape(path)
+    @path = uri
     load_page uri
   end
 
